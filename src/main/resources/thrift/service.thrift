@@ -28,7 +28,7 @@ struct ProductDto {
 
 service ProductMarketThriftService {
 
-    ProductDto get(1:i32 id) throws (1:InvalidOperationException e, 2:ProductNotFoundException nfe),
+    ProductDto get(1:i64 id) throws (1:InvalidOperationException e, 2:ProductNotFoundException nfe),
 
     void save(1:ProductDto product) throws (1:InvalidOperationException e),
 
