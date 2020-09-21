@@ -11,7 +11,7 @@ package ru.balmukanov.productmarketinterface.thrift;
 public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDto._Fields>, java.io.Serializable, Cloneable, Comparable<ProductDto> {
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("ProductDto");
 
-  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I32, (short)1);
+  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I64, (short)1);
   private static final org.apache.thrift.protocol.TField EXTERNAL_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("externalId", org.apache.thrift.protocol.TType.STRING, (short)2);
   private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("name", org.apache.thrift.protocol.TType.STRING, (short)3);
   private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.I32, (short)4);
@@ -21,7 +21,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ProductDtoStandardSchemeFactory();
   private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ProductDtoTupleSchemeFactory();
 
-  public int id; // required
+  public long id; // required
   public @org.apache.thrift.annotation.Nullable java.lang.String externalId; // required
   public @org.apache.thrift.annotation.Nullable java.lang.String name; // required
   /**
@@ -119,7 +119,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   static {
     java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I64)));
     tmpMap.put(_Fields.EXTERNAL_ID, new org.apache.thrift.meta_data.FieldMetaData("externalId", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.NAME, new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.DEFAULT, 
@@ -138,7 +138,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   }
 
   public ProductDto(
-    int id,
+    long id,
     java.lang.String externalId,
     java.lang.String name,
     ProductType type,
@@ -193,11 +193,11 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     this.userId = 0;
   }
 
-  public int getId() {
+  public long getId() {
     return this.id;
   }
 
-  public ProductDto setId(int id) {
+  public ProductDto setId(long id) {
     this.id = id;
     setIdIsSet(true);
     return this;
@@ -353,7 +353,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       if (value == null) {
         unsetId();
       } else {
-        setId((java.lang.Integer)value);
+        setId((java.lang.Long)value);
       }
       break;
 
@@ -524,7 +524,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   public int hashCode() {
     int hashCode = 1;
 
-    hashCode = hashCode * 8191 + id;
+    hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(id);
 
     hashCode = hashCode * 8191 + ((isSetExternalId()) ? 131071 : 524287);
     if (isSetExternalId())
@@ -721,8 +721,8 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
         }
         switch (schemeField.id) {
           case 1: // ID
-            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-              struct.id = iprot.readI32();
+            if (schemeField.type == org.apache.thrift.protocol.TType.I64) {
+              struct.id = iprot.readI64();
               struct.setIdIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -784,7 +784,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
 
       oprot.writeStructBegin(STRUCT_DESC);
       oprot.writeFieldBegin(ID_FIELD_DESC);
-      oprot.writeI32(struct.id);
+      oprot.writeI64(struct.id);
       oprot.writeFieldEnd();
       if (struct.externalId != null) {
         oprot.writeFieldBegin(EXTERNAL_ID_FIELD_DESC);
@@ -847,7 +847,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       }
       oprot.writeBitSet(optionals, 6);
       if (struct.isSetId()) {
-        oprot.writeI32(struct.id);
+        oprot.writeI64(struct.id);
       }
       if (struct.isSetExternalId()) {
         oprot.writeString(struct.externalId);
@@ -871,7 +871,7 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
       java.util.BitSet incoming = iprot.readBitSet(6);
       if (incoming.get(0)) {
-        struct.id = iprot.readI32();
+        struct.id = iprot.readI64();
         struct.setIdIsSet(true);
       }
       if (incoming.get(1)) {
