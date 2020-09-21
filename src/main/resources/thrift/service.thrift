@@ -18,7 +18,7 @@ enum ProductType {
 }
 
 struct ProductDto {
-    1: i32 id,
+    1: i64 id,
     2: string externalId,
     3: string name,
     4: ProductType type,
