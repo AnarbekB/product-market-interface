@@ -5,11 +5,6 @@ exception ProductNotFoundException {
     2: string description
 }
 
-exception InvalidOperationException {
-    1: i32 code,
-    2: string description
-}
-
 enum ProductType {
     CARD = 1,
     ACCOUNT = 2,
@@ -23,14 +18,14 @@ struct ProductDto {
     3: string name,
     4: ProductType type,
     5: string agreementId,
-    6: i32 userId
+    6: i64 userId
 }
 
 service ProductMarketThriftService {
 
-    ProductDto get(1:i64 id) throws (1:InvalidOperationException e, 2:ProductNotFoundException nfe),
+    ProductDto get(1:i64 id) throws (2:ProductNotFoundException nfe),
 
-    void save(1:ProductDto product) throws (1:InvalidOperationException e),
+    list<ProductDto> userList(1:i64 userId),
 
-    bool ping() throws (1:InvalidOperationException e)
+    ProductDto save(1:ProductDto product),
 }
