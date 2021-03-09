@@ -12,13 +12,23 @@ enum ProductType {
     LOAD = 4
 }
 
+struct CreateProductDto {
+    1: required string externalId,
+    2: required string name,
+    3: required ProductType type,
+    4: required string agreementId,
+    5: required i64 userId,
+    6: required bool active
+}
+
 struct ProductDto {
-    1: i64 id,
-    2: string externalId,
-    3: string name,
-    4: ProductType type,
-    5: string agreementId,
-    6: i64 userId
+    1: required i64 id,
+    2: required string externalId,
+    3: required string name,
+    4: required ProductType type,
+    5: required string agreementId,
+    6: required i64 userId,
+    7: required bool active
 }
 
 service ProductMarketThriftService {
@@ -27,5 +37,5 @@ service ProductMarketThriftService {
 
     list<ProductDto> userList(1:i64 userId),
 
-    ProductDto save(1:ProductDto product),
+    ProductDto save(1:CreateProductDto product),
 }
