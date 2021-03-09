@@ -17,7 +17,9 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.I32, (short)4);
   private static final org.apache.thrift.protocol.TField AGREEMENT_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("agreementId", org.apache.thrift.protocol.TType.STRING, (short)5);
   private static final org.apache.thrift.protocol.TField USER_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("userId", org.apache.thrift.protocol.TType.I64, (short)6);
-  private static final org.apache.thrift.protocol.TField ACTIVE_FIELD_DESC = new org.apache.thrift.protocol.TField("active", org.apache.thrift.protocol.TType.BOOL, (short)7);
+  private static final org.apache.thrift.protocol.TField AMOUNT_FIELD_DESC = new org.apache.thrift.protocol.TField("amount", org.apache.thrift.protocol.TType.DOUBLE, (short)7);
+  private static final org.apache.thrift.protocol.TField CURRENCY_FIELD_DESC = new org.apache.thrift.protocol.TField("currency", org.apache.thrift.protocol.TType.STRING, (short)8);
+  private static final org.apache.thrift.protocol.TField ACTIVE_FIELD_DESC = new org.apache.thrift.protocol.TField("active", org.apache.thrift.protocol.TType.BOOL, (short)9);
 
   private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ProductDtoStandardSchemeFactory();
   private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ProductDtoTupleSchemeFactory();
@@ -32,6 +34,8 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   public @org.apache.thrift.annotation.Nullable ProductType type; // required
   public @org.apache.thrift.annotation.Nullable java.lang.String agreementId; // required
   public long userId; // required
+  public double amount; // required
+  public @org.apache.thrift.annotation.Nullable java.lang.String currency; // required
   public boolean active; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
@@ -46,7 +50,9 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     TYPE((short)4, "type"),
     AGREEMENT_ID((short)5, "agreementId"),
     USER_ID((short)6, "userId"),
-    ACTIVE((short)7, "active");
+    AMOUNT((short)7, "amount"),
+    CURRENCY((short)8, "currency"),
+    ACTIVE((short)9, "active");
 
     private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -74,7 +80,11 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
           return AGREEMENT_ID;
         case 6: // USER_ID
           return USER_ID;
-        case 7: // ACTIVE
+        case 7: // AMOUNT
+          return AMOUNT;
+        case 8: // CURRENCY
+          return CURRENCY;
+        case 9: // ACTIVE
           return ACTIVE;
         default:
           return null;
@@ -119,7 +129,8 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
   // isset id assignments
   private static final int __ID_ISSET_ID = 0;
   private static final int __USERID_ISSET_ID = 1;
-  private static final int __ACTIVE_ISSET_ID = 2;
+  private static final int __AMOUNT_ISSET_ID = 2;
+  private static final int __ACTIVE_ISSET_ID = 3;
   private byte __isset_bitfield = 0;
   public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
@@ -136,6 +147,10 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.USER_ID, new org.apache.thrift.meta_data.FieldMetaData("userId", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I64)));
+    tmpMap.put(_Fields.AMOUNT, new org.apache.thrift.meta_data.FieldMetaData("amount", org.apache.thrift.TFieldRequirementType.REQUIRED, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+    tmpMap.put(_Fields.CURRENCY, new org.apache.thrift.meta_data.FieldMetaData("currency", org.apache.thrift.TFieldRequirementType.REQUIRED, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.ACTIVE, new org.apache.thrift.meta_data.FieldMetaData("active", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
     metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
@@ -152,6 +167,8 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     ProductType type,
     java.lang.String agreementId,
     long userId,
+    double amount,
+    java.lang.String currency,
     boolean active)
   {
     this();
@@ -163,6 +180,9 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     this.agreementId = agreementId;
     this.userId = userId;
     setUserIdIsSet(true);
+    this.amount = amount;
+    setAmountIsSet(true);
+    this.currency = currency;
     this.active = active;
     setActiveIsSet(true);
   }
@@ -186,6 +206,10 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       this.agreementId = other.agreementId;
     }
     this.userId = other.userId;
+    this.amount = other.amount;
+    if (other.isSetCurrency()) {
+      this.currency = other.currency;
+    }
     this.active = other.active;
   }
 
@@ -203,6 +227,9 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     this.agreementId = null;
     setUserIdIsSet(false);
     this.userId = 0;
+    setAmountIsSet(false);
+    this.amount = 0.0;
+    this.currency = null;
     setActiveIsSet(false);
     this.active = false;
   }
@@ -361,6 +388,54 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __USERID_ISSET_ID, value);
   }
 
+  public double getAmount() {
+    return this.amount;
+  }
+
+  public ProductDto setAmount(double amount) {
+    this.amount = amount;
+    setAmountIsSet(true);
+    return this;
+  }
+
+  public void unsetAmount() {
+    __isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __AMOUNT_ISSET_ID);
+  }
+
+  /** Returns true if field amount is set (has been assigned a value) and false otherwise */
+  public boolean isSetAmount() {
+    return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __AMOUNT_ISSET_ID);
+  }
+
+  public void setAmountIsSet(boolean value) {
+    __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __AMOUNT_ISSET_ID, value);
+  }
+
+  @org.apache.thrift.annotation.Nullable
+  public java.lang.String getCurrency() {
+    return this.currency;
+  }
+
+  public ProductDto setCurrency(@org.apache.thrift.annotation.Nullable java.lang.String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+  public void unsetCurrency() {
+    this.currency = null;
+  }
+
+  /** Returns true if field currency is set (has been assigned a value) and false otherwise */
+  public boolean isSetCurrency() {
+    return this.currency != null;
+  }
+
+  public void setCurrencyIsSet(boolean value) {
+    if (!value) {
+      this.currency = null;
+    }
+  }
+
   public boolean isActive() {
     return this.active;
   }
@@ -434,6 +509,22 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       }
       break;
 
+    case AMOUNT:
+      if (value == null) {
+        unsetAmount();
+      } else {
+        setAmount((java.lang.Double)value);
+      }
+      break;
+
+    case CURRENCY:
+      if (value == null) {
+        unsetCurrency();
+      } else {
+        setCurrency((java.lang.String)value);
+      }
+      break;
+
     case ACTIVE:
       if (value == null) {
         unsetActive();
@@ -466,6 +557,12 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     case USER_ID:
       return getUserId();
 
+    case AMOUNT:
+      return getAmount();
+
+    case CURRENCY:
+      return getCurrency();
+
     case ACTIVE:
       return isActive();
 
@@ -492,6 +589,10 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       return isSetAgreementId();
     case USER_ID:
       return isSetUserId();
+    case AMOUNT:
+      return isSetAmount();
+    case CURRENCY:
+      return isSetCurrency();
     case ACTIVE:
       return isSetActive();
     }
@@ -567,6 +668,24 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
         return false;
     }
 
+    boolean this_present_amount = true;
+    boolean that_present_amount = true;
+    if (this_present_amount || that_present_amount) {
+      if (!(this_present_amount && that_present_amount))
+        return false;
+      if (this.amount != that.amount)
+        return false;
+    }
+
+    boolean this_present_currency = true && this.isSetCurrency();
+    boolean that_present_currency = true && that.isSetCurrency();
+    if (this_present_currency || that_present_currency) {
+      if (!(this_present_currency && that_present_currency))
+        return false;
+      if (!this.currency.equals(that.currency))
+        return false;
+    }
+
     boolean this_present_active = true;
     boolean that_present_active = true;
     if (this_present_active || that_present_active) {
@@ -602,6 +721,12 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       hashCode = hashCode * 8191 + agreementId.hashCode();
 
     hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(userId);
+
+    hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(amount);
+
+    hashCode = hashCode * 8191 + ((isSetCurrency()) ? 131071 : 524287);
+    if (isSetCurrency())
+      hashCode = hashCode * 8191 + currency.hashCode();
 
     hashCode = hashCode * 8191 + ((active) ? 131071 : 524287);
 
@@ -672,6 +797,26 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     }
     if (isSetUserId()) {
       lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.userId, other.userId);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = java.lang.Boolean.valueOf(isSetAmount()).compareTo(other.isSetAmount());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetAmount()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.amount, other.amount);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = java.lang.Boolean.valueOf(isSetCurrency()).compareTo(other.isSetCurrency());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetCurrency()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.currency, other.currency);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -747,6 +892,18 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
     sb.append(this.userId);
     first = false;
     if (!first) sb.append(", ");
+    sb.append("amount:");
+    sb.append(this.amount);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("currency:");
+    if (this.currency == null) {
+      sb.append("null");
+    } else {
+      sb.append(this.currency);
+    }
+    first = false;
+    if (!first) sb.append(", ");
     sb.append("active:");
     sb.append(this.active);
     first = false;
@@ -770,6 +927,10 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       throw new org.apache.thrift.protocol.TProtocolException("Required field 'agreementId' was not present! Struct: " + toString());
     }
     // alas, we cannot check 'userId' because it's a primitive and you chose the non-beans generator.
+    // alas, we cannot check 'amount' because it's a primitive and you chose the non-beans generator.
+    if (currency == null) {
+      throw new org.apache.thrift.protocol.TProtocolException("Required field 'currency' was not present! Struct: " + toString());
+    }
     // alas, we cannot check 'active' because it's a primitive and you chose the non-beans generator.
     // check for sub-struct validity
   }
@@ -858,7 +1019,23 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 7: // ACTIVE
+          case 7: // AMOUNT
+            if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+              struct.amount = iprot.readDouble();
+              struct.setAmountIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 8: // CURRENCY
+            if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+              struct.currency = iprot.readString();
+              struct.setCurrencyIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 9: // ACTIVE
             if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
               struct.active = iprot.readBool();
               struct.setActiveIsSet(true);
@@ -879,6 +1056,9 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       }
       if (!struct.isSetUserId()) {
         throw new org.apache.thrift.protocol.TProtocolException("Required field 'userId' was not found in serialized data! Struct: " + toString());
+      }
+      if (!struct.isSetAmount()) {
+        throw new org.apache.thrift.protocol.TProtocolException("Required field 'amount' was not found in serialized data! Struct: " + toString());
       }
       if (!struct.isSetActive()) {
         throw new org.apache.thrift.protocol.TProtocolException("Required field 'active' was not found in serialized data! Struct: " + toString());
@@ -916,6 +1096,14 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       oprot.writeFieldBegin(USER_ID_FIELD_DESC);
       oprot.writeI64(struct.userId);
       oprot.writeFieldEnd();
+      oprot.writeFieldBegin(AMOUNT_FIELD_DESC);
+      oprot.writeDouble(struct.amount);
+      oprot.writeFieldEnd();
+      if (struct.currency != null) {
+        oprot.writeFieldBegin(CURRENCY_FIELD_DESC);
+        oprot.writeString(struct.currency);
+        oprot.writeFieldEnd();
+      }
       oprot.writeFieldBegin(ACTIVE_FIELD_DESC);
       oprot.writeBool(struct.active);
       oprot.writeFieldEnd();
@@ -942,6 +1130,8 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       oprot.writeI32(struct.type.getValue());
       oprot.writeString(struct.agreementId);
       oprot.writeI64(struct.userId);
+      oprot.writeDouble(struct.amount);
+      oprot.writeString(struct.currency);
       oprot.writeBool(struct.active);
     }
 
@@ -960,6 +1150,10 @@ public class ProductDto implements org.apache.thrift.TBase<ProductDto, ProductDt
       struct.setAgreementIdIsSet(true);
       struct.userId = iprot.readI64();
       struct.setUserIdIsSet(true);
+      struct.amount = iprot.readDouble();
+      struct.setAmountIsSet(true);
+      struct.currency = iprot.readString();
+      struct.setCurrencyIsSet(true);
       struct.active = iprot.readBool();
       struct.setActiveIsSet(true);
     }

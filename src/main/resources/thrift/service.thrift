@@ -18,7 +18,9 @@ struct CreateProductDto {
     3: required ProductType type,
     4: required string agreementId,
     5: required i64 userId,
-    6: required bool active
+    6: required double amount,
+    7: required string currency,
+    8: required bool active
 }
 
 struct ProductDto {
@@ -28,7 +30,9 @@ struct ProductDto {
     4: required ProductType type,
     5: required string agreementId,
     6: required i64 userId,
-    7: required bool active
+    7: required double amount,
+    8: required string currency,
+    9: required bool active
 }
 
 service ProductMarketThriftService {
