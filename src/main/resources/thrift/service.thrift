@@ -9,7 +9,7 @@ enum ProductType {
     CARD = 1,
     ACCOUNT = 2,
     DEPOSIT = 3,
-    LOAD = 4
+    LOAN = 4
 }
 
 struct CreateProductDto {
